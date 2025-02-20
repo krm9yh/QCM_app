@@ -1,0 +1,122 @@
+#:kivy 2.3.0
+
+<WelcomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id: welcome
+            text: 'Welcome, choose a topic'
+        Button:
+            text: 'Psychiatrie'
+            on_press: app.StartPsy()
+        Button:
+            text: 'Synthèse Thérapeutique'
+            on_press: app.StartSyn()
+        Button:
+            text: 'Réanimation'
+            on_press: app.StartRea()
+
+       
+
+<QuizScreen>:
+    BoxLayout:
+        id: question_layout
+        orientation: 'vertical'
+        Label:
+            id: my_question
+            text: ""
+            size_hint_y: None
+            height : self.texture_size[1]
+            text_size: self.width, None
+            halign: 'center'
+            canvas.before:
+                Color:
+                    rgba: 0.7, 0, 0, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            
+            CheckBox:
+                id: optionA
+                size_hint_x: 0.2
+            Label:
+                id: op1
+                text: ""
+                text_size: self.width, None
+
+        
+
+        BoxLayout:
+            orientation: 'horizontal'
+            CheckBox:
+                id: optionB
+                size_hint_x: 0.2
+            Label:
+                id: op2
+                text: "" 
+                text_size: self.width, None   
+
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            CheckBox:
+                id: optionC
+                size_hint_x: 0.2
+            Label:
+                id: op3
+                text: ""
+                text_size: self.width, None
+
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            CheckBox:
+                id: optionD
+                size_hint_x: 0.2
+            Label:
+                id: op4
+                text: "" 
+                text_size: self.width, None
+
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            CheckBox:
+                id: optionE
+                size_hint_x: 0.2
+            Label:
+                id: op5
+                text: ""
+                text_size: self.width, None
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            Button:
+                id: check
+                text: 'Check'
+                on_press: app.CheckAnswers(app.GetOptionsAnswers(app.QuestionID(root.ids.my_question.text)))
+
+            Button:
+                text: "again"
+                on_press: app.reset()
+
+
+            
+
+
+
+
+            
+
+
+
